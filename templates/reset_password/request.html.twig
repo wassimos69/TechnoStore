@@ -3,13 +3,79 @@
 {% block title %}Reset your password{% endblock %}
 
 {% block body %}
+<style>
+    body {
+        background: url('/assets/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+    .reset-container {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        background-color: #201918;
+    }
+    .reset-container h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .reset-container .form-group {
+        margin-bottom: 20px;
+    }
+    .reset-container .form-control {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+    .reset-container .form-control:focus {
+        border-color: #f8b4a9;
+        outline: none;
+        box-shadow: 0 0 5px rgba(248, 180, 169, 0.5);
+    }
+    .reset-container small {
+        color: #fff;
+    }
+    .reset-container .btn {
+        background-color: black;
+        border-color: #f8b4a9;
+        color: #fff;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+    }
+    .reset-container .btn:hover {
+        background-color: #f09683;
+        box-shadow: 0 4px 10px rgba(240, 150, 131, 0.3);
+    }
+</style>
+
+<div class="reset-container">
     {% for flash_error in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
     <h1>Reset your password</h1>
 
     {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email) }}
+        <div class="form-group">
+            {{ form_row(requestForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Enter your email'}}) }}
+        </div>
         <div>
             <small>
                 Enter your email address, and we will send you a
@@ -19,4 +85,5 @@
 
         <button class="btn btn-primary">Send password reset email</button>
     {{ form_end(requestForm) }}
+</div>
 {% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Go check your mail!{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        background: url('/assets/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+    .check-mail-container {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        background-color: #201918;
+    }
+    .check-mail-container h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+    }
+</style>
+
+<div class="check-mail-container">
+    <h1>Go check your mail!</h1>
+</div>
+{% endblock %}

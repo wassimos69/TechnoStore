@@ -5,7 +5,7 @@
 {% block body %}
 <style>
     body {
-        background: url('/assets/images/bg.jpg') no-repeat center center fixed;
+        background: url('/assets/bg.jpg') no-repeat center center fixed;
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -22,12 +22,13 @@
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         text-align: center;
+        background-color: #201918;
     }
     .login-container h1 {
         margin-bottom: 30px;
         font-size: 24px;
         font-weight: bold;
-        color: #333;
+        color: #fff;
     }
     .login-container .form-control {
         margin-bottom: 15px;
@@ -42,8 +43,11 @@
         outline: none;
         box-shadow: 0 0 5px rgba(248, 180, 169, 0.5);
     }
+    .login-container label {
+        color: #fff;
+    }
     .login-container .btn {
-        background-color: #f8b4a9;
+        background-color: black;
         border-color: #f8b4a9;
         color: #fff;
         padding: 10px 15px;
@@ -59,7 +63,7 @@
     .login-container .forgot-password {
         display: block;
         margin-top: 10px;
-        color: #999;
+        color: #FFFFFF;
         text-decoration: none;
         transition: color 0.3s ease;
     }
@@ -67,6 +71,7 @@
         color: #f8b4a9;
     }
     .social-login {
+        color: #FFFFFF;
         margin-top: 20px;
         text-align: center;
     }
@@ -91,7 +96,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
     .text-center a {
-        color: #333;
+        color: #fff;
         text-decoration: none;
         transition: color 0.3s ease;
     }
@@ -101,8 +106,6 @@
 </style>
 
 <div class="login-container">
-   
-
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -135,7 +138,7 @@
         <a class="forgot-password" href="{{ path('app_forgot_password_request') }}">Forgot Password</a>
 
         <div class="social-login">
-            <p>Or Sign In With</p>
+            <p stay>Or Sign In With</p>
             <button type="button" class="btn btn-primary">Facebook</button>
             <button type="button" class="btn btn-info">Twitter</button>
         </div>

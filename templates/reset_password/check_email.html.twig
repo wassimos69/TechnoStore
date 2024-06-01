@@ -3,9 +3,46 @@
 {% block title %}Password Reset Email Sent{% endblock %}
 
 {% block body %}
+<style>
+    body {
+        background: url('/assets/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+        text-align: center;
+    }
+    .email-sent-container {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        background-color: #201918;
+    }
+    .email-sent-container p {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    .email-sent-container a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    .email-sent-container a:hover {
+        color: #f8b4a9;
+    }
+</style>
+
+<div class="email-sent-container">
     <p>
         If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
         This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
     </p>
     <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+</div>
 {% endblock %}
